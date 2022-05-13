@@ -1,0 +1,22 @@
+.react-tabs ul {
+    display: flex;
+    border-bottom: 2px solid var(--theme-primary);
+    margin-bottom: 30px;
+  }
+  .react-tabs ul li{
+    list-style-type: none;
+    padding: 10px 16px 11px;
+    cursor: pointer;
+    margin-bottom: -2px;
+  }
+  .react-tabs__tab--selected{
+    background: var(--theme-primary);
+    color: #fff;
+    
+  }
+
+  @media screen and (max-width: 688px) {
+    .react-tabs ul {
+        flex-wrap: wrap;
+      }
+  }
