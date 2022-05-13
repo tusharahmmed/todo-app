@@ -1,10 +1,10 @@
-.react-tabs ul {
+.react-tabs>ul {
     display: flex;
     border-bottom: 2px solid var(--theme-primary);
     margin-bottom: 30px;
     padding: 0;
   }
-  .react-tabs ul li{
+  .react-tabs>ul li{
     list-style-type: none;
     padding: 10px 16px 11px;
     cursor: pointer;
