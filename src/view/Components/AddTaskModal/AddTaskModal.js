@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './AddTaskModal.css';
 import styled from 'styled-components';
 import DescriptionEditor from '../DescriptionEditor/DescriptionEditor';
 
-const AddTaskModal = () => {
+const AddTaskModal = (props) => {
 
-    const [editorText, setEditorText] = useState("");
+    const {editorText,setEditorText,handleModalSubmit,getTaskTitle} = props;
 
     return (
 
@@ -17,11 +17,11 @@ const AddTaskModal = () => {
                         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div className="modal-body">
-                        <form>
+                        <form onSubmit={handleModalSubmit}>
 
                             <InputWraper>
                                 <Label>Question Title <span>*</span></Label>
-                                <input type="text"  />
+                                <input type="text" onBlur={getTaskTitle} required />
                             </InputWraper>
 
                             <InputWraper>
@@ -29,7 +29,7 @@ const AddTaskModal = () => {
 
                                 <span>
                                     <DescriptionEditor editorText={editorText} setEditorText={setEditorText} />
-                                    <PostBtn type='submit'>Save Task</PostBtn>
+                                    <PostBtn type='submit' data-bs-dismiss="modal" aria-label="Close">Save Task</PostBtn>
                                 </span>
 
                             </InputWraper>

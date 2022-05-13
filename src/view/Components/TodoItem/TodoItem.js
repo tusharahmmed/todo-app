@@ -1,34 +1,44 @@
 import React from 'react';
 import styled from 'styled-components';
-import {FaCheck,FaStar,FaCalendar,FaComments,} from 'react-icons/fa';
+import { FaCheck } from 'react-icons/fa';
+import parse from 'html-react-parser';
 
+const TodoItem = ({ data,handleUpdateTask,handleDeleteTask,handleDeletePermanent }) => {
 
-const TodoItem = () => {
+    const { id, title, description, status } = data;
+
+    let isTrash = data?.isTrash
+    console.log(isTrash);
+
     return (
         <Container>
             <PostDetails>
                 <PostHeader>
-                    <h2>aa</h2>
-                    <button>Delete</button>
+                    <h2>{title}</h2>
+                    <span>
+                        {
+                            status == 'inProgress' ? <CompleteBtn onClick={()=> handleUpdateTask(id)}>Complete</CompleteBtn> : null
+                        }
+                        {
+                            !isTrash ? <DeleteBtn onClick={()=> handleDeleteTask(id)}>Delete</DeleteBtn> : <DeleteBtn onClick={()=> handleDeletePermanent(id)}>Delete</DeleteBtn>
+                        }
+                    </span>
                 </PostHeader>
-                <PostDescription>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis, architecto fugiat dolor nulla iste cupiditate illum esse assumenda nam in deleniti, quis illo beatae consequuntur quod veniam tempore, nisi repellat.</PostDescription>
+                <PostDescription>{parse(`${description}`)}</PostDescription>
 
-                <PostFooter>
+               {
+                   isTrash ? null :  <PostFooter>
 
-                    <StatsWraper color='green'>
-                        <FaCheck size={12} /> <span>Completed</span>
-                    </StatsWraper>
-                    <StatsWraper color="gold">
-                        <FaStar /> <span>48</span>
-                    </StatsWraper>
-                    <StatsWraper>
-                        <FaCalendar color='#2F3239' /> <span>3 days</span>
-                    </StatsWraper>
-                    <StatsWraper>
-                        <FaComments color='#2F3239' /> <span>6 Answers</span>
-                    </StatsWraper>
+                   {
+                       status == 'inProgress' ? <StatsWraper color='var(--theme-primary)'>
+                           <FaCheck size={12} /> <span>in progress</span>
+                       </StatsWraper> : <StatsWraper color='green'>
+                           <FaCheck size={12} /> <span>completed</span>
+                       </StatsWraper>
+                   }
 
-                </PostFooter>
+               </PostFooter>
+               }
 
             </PostDetails>
         </Container>
@@ -66,17 +76,17 @@ const PostHeader = styled.div`
         }
     }
 
-    button{
-        height: 23px;
-        padding: 0px 16px;
-        font-size: 12px;
-        background: var(--theme-secondary);
-        color: #fff;
-        border: none;
-        cursor: pointer;
+    span{
 
+        button{
+            height: 23px;
+            padding: 0px 16px;
+            font-size: 12px;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
     }
-
 
     @media (max-width: 992px){
         margin-bottom: 25px;
@@ -98,6 +108,15 @@ const PostHeader = styled.div`
 
     }
 `;
+
+const CompleteBtn = styled.button`
+margin-right: 10px;
+background: green;
+`;
+const DeleteBtn = styled.button`
+background: var(--theme-secondary);
+`;
+
 const PostDescription = styled.p`
     font-size: 15px;
     line-height: 30px;
@@ -113,5 +132,5 @@ const StatsWraper = styled.div`
     margin-right: 20px;
     font-size: 13px;
 
-    color: ${(props)=> props.color? props.color : 'var(--font-secondary)'};
+    color: ${(props) => props.color ? props.color : 'var(--font-secondary)'};
 `;
