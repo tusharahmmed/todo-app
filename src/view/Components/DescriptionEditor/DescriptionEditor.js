@@ -6,9 +6,9 @@ import styled from 'styled-components';
 
 const DescriptionEditor = (props) => {
 
-       // set text to state
-       const setEditorText = props?.setEditorText;
-       const editorText = props?.editorText;
+    // set text to state
+    const setEditorText = props?.setEditorText;
+    const editorText = props?.editorText;
 
     return (
         <EditorWraper>

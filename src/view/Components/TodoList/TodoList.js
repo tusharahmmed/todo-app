@@ -11,7 +11,7 @@ const TodoList = () => {
 
     // states
     const [allTasks, setAllTasks] = useState(null);
-    const [trashList,setTrashList] = useState(null);
+    const [trashList, setTrashList] = useState(null);
     // modal data (add new task)
     const [newTask, setNewTask] = useState({});
     // description box state
@@ -200,7 +200,7 @@ const TodoList = () => {
                     {/* all tasks  */}
 
                     {
-                        allTasks ? allTasks.map(item => <TodoItem key={item.id} data={item} handleUpdateTask={handleUpdateTask} handleDeleteTask={handleDeleteTask}  handleDeletePermanent={handleDeletePermanent} />) : 'No Task Yet...'
+                        allTasks ? allTasks.map(item => <TodoItem key={item.id} data={item} handleUpdateTask={handleUpdateTask} handleDeleteTask={handleDeleteTask} handleDeletePermanent={handleDeletePermanent} />) : 'No Task Yet...'
                     }
                 </TabPanel>
 
@@ -208,23 +208,23 @@ const TodoList = () => {
                     {/* complete tasks  */}
 
                     {
-                        allTasks ? allTasks.map(item => item.status === 'completed' && <TodoItem key={item.id} data={item} handleUpdateTask={handleUpdateTask} handleDeleteTask={handleDeleteTask} handleDeletePermanent={handleDeletePermanent} /> ) : 'No Task Yet...'
+                        allTasks ? allTasks.map(item => item.status === 'completed' && <TodoItem key={item.id} data={item} handleUpdateTask={handleUpdateTask} handleDeleteTask={handleDeleteTask} handleDeletePermanent={handleDeletePermanent} />) : 'No Task Yet...'
                     }
                 </TabPanel>
                 <TabPanel>
                     {/* in progress tasks  */}
 
                     {
-                        allTasks ? allTasks.map(item => item.status == 'inProgress' && <TodoItem key={item.id} data={item} handleUpdateTask={handleUpdateTask} handleDeleteTask={handleDeleteTask} handleDeletePermanent={handleDeletePermanent} /> ) : null
+                        allTasks ? allTasks.map(item => item.status == 'inProgress' && <TodoItem key={item.id} data={item} handleUpdateTask={handleUpdateTask} handleDeleteTask={handleDeleteTask} handleDeletePermanent={handleDeletePermanent} />) : null
                     }
                 </TabPanel>
                 <TabPanel>
                     {/* trash list tasks  */}
 
                     {
-                        trashList ? trashList.map(item =>  <TodoItem key={item.id} data={item} handleUpdateTask={handleUpdateTask} handleDeleteTask={handleDeleteTask} handleDeletePermanent={handleDeletePermanent} />) : 'No Task Yet...'
+                        trashList ? trashList.map(item => <TodoItem key={item.id} data={item} handleUpdateTask={handleUpdateTask} handleDeleteTask={handleDeleteTask} handleDeletePermanent={handleDeletePermanent} />) : 'No Task Yet...'
                     }
-                    
+
                 </TabPanel>
 
             </Tabs>

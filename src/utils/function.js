@@ -8,19 +8,19 @@ const addNewTask = (data) => {
 
     // set localstorage
     const updatedJson = JSON.stringify(updatedTasks);
-    localStorage.setItem("tasks",updatedJson);
+    localStorage.setItem("tasks", updatedJson);
 }
 
 // get all task
 const getAllTask = () => {
     const tasks = JSON.parse(localStorage.getItem('tasks'));
-    
+
     return tasks;
 }
 // get all task
 const getTrashTask = () => {
     const tasks = JSON.parse(localStorage.getItem('trashList'));
-    
+
     return tasks;
 }
 
@@ -32,14 +32,14 @@ const taskComplete = (id) => {
     const allTasks = getAllTask();
 
     allTasks.forEach(item => {
-        if(item.id == id){
+        if (item.id == id) {
             item.status = 'completed'
         }
     });
 
     // set localstorage
     const updatedJson = JSON.stringify(allTasks);
-    localStorage.setItem("tasks",updatedJson);
+    localStorage.setItem("tasks", updatedJson);
 }
 
 // delete task item
@@ -50,10 +50,10 @@ const deleteTask = (id) => {
     const result = allTasks.filter(item => item.id !== id);
     const deletedItem = allTasks.filter(item => item.id == id);
     deletedItem[0].isTrash = true;
-    
+
     // update tasklist localstorage
     const updatedJson = JSON.stringify(result);
-    localStorage.setItem("tasks",updatedJson);
+    localStorage.setItem("tasks", updatedJson);
 
     // set to trash list
     let updatedTrash = [];
@@ -63,20 +63,20 @@ const deleteTask = (id) => {
 
     // update trash list localstorage
     const updatedTrashJson = JSON.stringify(updatedTrash);
-    localStorage.setItem("trashList",updatedTrashJson);
+    localStorage.setItem("trashList", updatedTrashJson);
 }
 
 // permanently delete item
 
 const deletePermanent = (id) => {
 
-const allTasks = getTrashTask();
+    const allTasks = getTrashTask();
 
-const result = allTasks.filter(item => item.id !== id);
+    const result = allTasks.filter(item => item.id !== id);
 
-// update tasklist localstorage
-const updatedJson = JSON.stringify(result);
-localStorage.setItem("trashList",updatedJson);
+    // update tasklist localstorage
+    const updatedJson = JSON.stringify(result);
+    localStorage.setItem("trashList", updatedJson);
 }
 
 export {

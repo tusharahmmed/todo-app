@@ -5,7 +5,7 @@ import DescriptionEditor from '../DescriptionEditor/DescriptionEditor';
 
 const AddTaskModal = (props) => {
 
-    const {editorText,setEditorText,handleModalSubmit,getTaskTitle} = props;
+    const { editorText, setEditorText, handleModalSubmit, getTaskTitle } = props;
 
     return (
 

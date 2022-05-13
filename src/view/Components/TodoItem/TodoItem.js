@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { FaCheck } from 'react-icons/fa';
 import parse from 'html-react-parser';
 
-const TodoItem = ({ data,handleUpdateTask,handleDeleteTask,handleDeletePermanent }) => {
+const TodoItem = ({ data, handleUpdateTask, handleDeleteTask, handleDeletePermanent }) => {
 
     const { id, title, description, status } = data;
 
@@ -17,28 +17,28 @@ const TodoItem = ({ data,handleUpdateTask,handleDeleteTask,handleDeletePermanent
                     <h2>{title}</h2>
                     <span>
                         {
-                            status == 'inProgress' ? <CompleteBtn onClick={()=> handleUpdateTask(id)}>Complete</CompleteBtn> : null
+                            status == 'inProgress' ? <CompleteBtn onClick={() => handleUpdateTask(id)}>Complete</CompleteBtn> : null
                         }
                         {
-                            !isTrash ? <DeleteBtn onClick={()=> handleDeleteTask(id)}>Delete</DeleteBtn> : <DeleteBtn onClick={()=> handleDeletePermanent(id)}>Delete</DeleteBtn>
+                            !isTrash ? <DeleteBtn onClick={() => handleDeleteTask(id)}>Delete</DeleteBtn> : <DeleteBtn onClick={() => handleDeletePermanent(id)}>Delete</DeleteBtn>
                         }
                     </span>
                 </PostHeader>
                 <PostDescription>{parse(`${description}`)}</PostDescription>
 
-               {
-                   isTrash ? null :  <PostFooter>
+                {
+                    isTrash ? null : <PostFooter>
 
-                   {
-                       status == 'inProgress' ? <StatsWraper color='var(--theme-primary)'>
-                           <FaCheck size={12} /> <span>in progress</span>
-                       </StatsWraper> : <StatsWraper color='green'>
-                           <FaCheck size={12} /> <span>completed</span>
-                       </StatsWraper>
-                   }
+                        {
+                            status == 'inProgress' ? <StatsWraper color='var(--theme-primary)'>
+                                <FaCheck size={12} /> <span>in progress</span>
+                            </StatsWraper> : <StatsWraper color='green'>
+                                <FaCheck size={12} /> <span>completed</span>
+                            </StatsWraper>
+                        }
 
-               </PostFooter>
-               }
+                    </PostFooter>
+                }
 
             </PostDetails>
         </Container>
