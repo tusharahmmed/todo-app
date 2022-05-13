@@ -3,6 +3,7 @@ import './TodoList.css';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import styled from 'styled-components';
 import TodoItem from '../TodoItem/TodoItem';
+import AddTaskModal from '../AddTaskModal/AddTaskModal';
 
 const TodoList = () => {
     return (
@@ -14,8 +15,7 @@ const TodoList = () => {
                     <Tab>All Tasks</Tab>
                     <Tab>Completed</Tab>
                     <Tab>In Progress</Tab>
-                    <Tab>Most Important</Tab>
-                    <Tab>Less Important</Tab>
+                    <Tab>Trash</Tab>
                 </TabList>
 
                 <TabPanel>
@@ -28,12 +28,9 @@ const TodoList = () => {
                     <TodoItem />
                 </TabPanel>
 
-                
-              
-
-
-
             </Tabs>
+
+            <AddTaskModal />
         </Container>
     );
 };

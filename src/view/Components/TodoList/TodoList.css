@@ -2,6 +2,7 @@
     display: flex;
     border-bottom: 2px solid var(--theme-primary);
     margin-bottom: 30px;
+    padding: 0;
   }
   .react-tabs ul li{
     list-style-type: none;

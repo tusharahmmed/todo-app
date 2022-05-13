@@ -1,0 +1,13 @@
+.form-title{
+    font-size: 20px;
+    color: var(--theme-primary);
+    padding: 20px 10px;
+}
+
+/*  text editor */
+.ck-content{
+    height: 200px;
+  }
+.ck-content p{
+    margin: 0;
+  }

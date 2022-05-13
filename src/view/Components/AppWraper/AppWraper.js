@@ -10,7 +10,7 @@ const AppWraper = () => {
                 <Logo>
                     <img src="/img/logo.png" alt="logo" />
                 </Logo>
-                <AddButton>Add New</AddButton>
+                <AddButton type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Add New</AddButton>
             </LogoWraper>
 
             <TodoList />
