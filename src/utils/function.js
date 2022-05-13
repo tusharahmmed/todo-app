@@ -19,7 +19,7 @@ const getAllTask = () => {
 }
 // get all task
 const getTrashTask = () => {
-    const tasks = JSON.parse(localStorage.getItem('trashList'));
+    const tasks = JSON.parse(localStorage.getItem('trashList')) || [];
 
     return tasks;
 }
