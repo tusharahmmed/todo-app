@@ -215,7 +215,7 @@ const TodoList = () => {
                     {/* in progress tasks  */}
 
                     {
-                        allTasks ? allTasks.map(item => item.status == 'inProgress' && <TodoItem key={item.id} data={item} handleUpdateTask={handleUpdateTask} handleDeleteTask={handleDeleteTask} handleDeletePermanent={handleDeletePermanent} />) : null
+                        allTasks ? allTasks.map(item => item.status == 'inProgress' && <TodoItem key={item.id} data={item} handleUpdateTask={handleUpdateTask} handleDeleteTask={handleDeleteTask} handleDeletePermanent={handleDeletePermanent} />) : 'No Task Yet...'
                     }
                 </TabPanel>
                 <TabPanel>

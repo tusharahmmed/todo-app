@@ -20,7 +20,7 @@ const AddTaskModal = (props) => {
                         <form onSubmit={handleModalSubmit}>
 
                             <InputWraper>
-                                <Label>Question Title <span>*</span></Label>
+                                <Label>Task Title <span>*</span></Label>
                                 <input type="text" onBlur={getTaskTitle} required />
                             </InputWraper>
 
